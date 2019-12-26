@@ -1,12 +1,23 @@
-import React, { useState } from 'react';
+import React, {useState, useEffect, useRef} from 'react';
+import "@babel/polyfill";
+import ImageService from './api/images.js';
 
-export const Hello = () => {
+import './styles/index.scss';
 
-  const [count, setCount] = useState(0);
+export const Hello = props => {
+
+  const [text, setText] = useState('');
+  const divElem = useRef(null);
+
+  useEffect(() => {
+    const fetchGalery = async () => {
+      const result = await ImageService.getGalery();
+      console.log("Result: ", result.data);
+    }
+    fetchGalery();
+  });
 
   return (
-    <>
-      <div>Hello world!</div>
-    </>
+    <button className="MainApp" ref={divElem} text={text} />
   )
 }
