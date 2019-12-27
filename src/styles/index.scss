@@ -1,5 +1,46 @@
-.MainApp {
-    width: 10rem;
-    height: 10rem;
-    background-color: #eeeeee;  
+body, html {
+    margin: 0;
+    padding: 0;
+    background-color: #2d3436;
+}
+
+.container {
+    display: flex;
+    margin: 0 auto;
+    width: 80%;
+}
+
+ul {
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+
+    li {
+        display: flex;
+        align-items: center;
+        align-self: stretch;
+        margin: 15px;
+        padding: 7px;
+        border-radius: 5px;
+        border: 2px solid #eeeeee;
+        -webkit-box-shadow: 0px 5px 38px 1px rgba(255,255,255,1);
+        -moz-box-shadow: 0px 5px 38px 1px rgba(255,255,255,1);
+        box-shadow: 0px 5px 38px 1px rgba(255,255,255,1);
+        bottom: 0;
+        position: relative;
+        transition-property: bottom;
+        transition-duration: 0.03s;
+        transition-timing-function: linear;
+
+        &:hover {
+            border-color: yellow;
+            cursor: pointer;
+            position: relative;
+            bottom: 15px;
+            -webkit-box-shadow: 0px 5px 38px 1px rgba(252,236,60,1);
+            -moz-box-shadow: 0px 5px 38px 1px rgba(252,236,60,1);
+            box-shadow: 0px 5px 38px 1px rgba(252,236,60,1);
+        }
+    }
 }

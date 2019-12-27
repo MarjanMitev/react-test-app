@@ -1,21 +1,16 @@
-import { API_HOST, API_KEY, API_URL, API_CIENT_ID } from '../config.js';
-
+import { API_URL } from '../config.js';
 class ImageService {
-    API_HEADERS;
+    REQUEST_PARAMS;
     
     constructor() {
-        this.API_HEADERS = {
-            'x-rapidapi-host': `${API_HOST}`,
-            'x-rapidapi-key': `${API_KEY}`,
-            'Authorization:': 'Client-ID ' + API_CIENT_ID
+        this.REQUEST_PARAMS = {
+            method: 'GET'
         }
     }
 
-    getGalery() {
-        return fetch(API_URL, {
-            'method': 'GET',
-            'headers': this.API_HEADERS
-        });
+    async getGiphies(limit) {
+        const response = await fetch(API_URL.replace('{LIMIT}', limit), this.REQUEST_PARAMS);
+        return response.json();
     }
 }
 
